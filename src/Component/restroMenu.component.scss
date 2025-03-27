@@ -1,0 +1,59 @@
+.form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+}
+
+.cuisine-section label {
+  margin-right: 15px;
+}
+
+.restaurant-section {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+  border: 2px solid grey;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -18px;
+}
+.dish-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+
+  .dish-div {
+    display: flex;
+    gap: 30px;
+
+    .dish-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
+}

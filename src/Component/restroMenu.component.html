@@ -1,0 +1,72 @@
+<div class="form" [formGroup]="restroForm">
+  <div>
+    <label> Name </label>
+    <input type="text" formControlName="name" />
+  </div>
+  <div>
+    <label> Cuisine </label>
+
+    <div formArrayName="cuisines">
+      @for(cuisine of cuisineOptions; track cuisine; let i = $index){
+      <div>
+        <input type="checkbox" [formControlName]="i" />
+        {{ cuisine }}
+      </div>
+      }
+    </div>
+  </div>
+  <button (click)="addRestaurant()" type="submit">Submit</button>
+</div>
+
+@for(restro of restros; track restro; let i = $index){
+<div class="restaurant-section">
+  <div class="header">
+    <h2>{{ restro.name }}</h2>
+    <p><strong>Cuisines:</strong> {{ restro.cuisines.join(', ') }}</p>
+  </div>
+  <hr />
+  <div class="dish-form">
+    <div class="dish-div">
+      <div class="dish-item">
+        <label>Dish Name</label>
+        <input #dishName type="text" />
+      </div>
+      <div class="dish-item">
+        <label>price</label>
+        <input #dishPrice type="number" />
+      </div>
+    </div>
+    <div class="dish-div">
+      <select #dishType>
+        <option value="Veg">Veg</option>
+        <option value="Non-Veg">Non-Veg</option>
+      </select>
+      <button (click)="addDish(restro, dishName, dishPrice, dishType)">
+        Add Dish
+      </button>
+    </div>
+  </div>
+
+  <!-- Table Form -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(dish of restro.dishes; track dish; let i = $index){
+      <tr>
+        <td>{{ i + 1 }}</td>
+        <td>{{ dish.name }}</td>
+        <td>{{ dish.price }}</td>
+        <td>{{ dish.type }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+}
